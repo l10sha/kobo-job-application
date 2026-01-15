@@ -189,6 +189,46 @@
             color: var(--white);
         }
 
+        /* Download Links Section */
+        .nav-downloads {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--bg-light);
+        }
+
+        .nav-downloads-header {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            padding-left: 12px;
+            opacity: 0.9;
+        }
+
+        .download-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .download-link:hover {
+            background: var(--kobo-red);
+            color: var(--white);
+        }
+
+        .download-icon {
+            font-size: 1.1rem;
+        }
+
         /* Navigation Footer & Signature */
         .nav-footer {
             margin-top: auto;
@@ -1914,6 +1954,17 @@
                 <div class="nav-item" data-slide="5">6. Office Life & Events</div>
                 <div class="nav-item" data-slide="6">7. External Engagement</div>
                 <div class="nav-item" data-slide="7">8. Let's Connect</div>
+            </div>
+            <div class="nav-downloads">
+                <div class="nav-downloads-header">Documents</div>
+                <a href="Alexey Lobachev Resume.pdf" download class="download-link">
+                    <span class="download-icon">📄</span>
+                    <span>Resume (PDF)</span>
+                </a>
+                <a href="Alexey Lobachev Cover Letter.pdf" download class="download-link">
+                    <span class="download-icon">📝</span>
+                    <span>Cover Letter (PDF)</span>
+                </a>
             </div>
             <div class="marquee-container">
                 <div class="marquee-text">Explore The Site To Learn More About Me &nbsp; *** &nbsp; Explore The Site

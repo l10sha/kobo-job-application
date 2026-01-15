@@ -1,5 +1,7 @@
 .DS_Store
 *.pdf
+!Alexey Lobachev Resume.pdf
+!Alexey Lobachev Cover Letter.pdf
 .env
 credentials.json
 token.json
