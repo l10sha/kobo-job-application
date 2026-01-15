@@ -3091,7 +3091,7 @@
                         border-radius: 12px;
                         padding: 15px;
                         border: 1px solid #e0e0e0;
-                        cursor: pointer;
+                        cursor: default;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
@@ -3353,7 +3353,7 @@
                 <div id="events-grid-container">
                     <div class="events-grid" id="real-events-grid">
                         <!-- Card 1: A♥ Reading -->
-                        <div class="event-card card-suit-red" onclick="openModal('event_reading')"
+                        <div class="event-card card-suit-red" data-modal="event_reading"
                             data-suit-color="red">
                             <div class="card-corner top-left">A<br>♥</div>
                             <div class="event-icon">📖</div>
@@ -3363,7 +3363,7 @@
                         </div>
 
                         <!-- Card 2: K♥ Author -->
-                        <div class="event-card card-suit-red" onclick="openModal('event_author')" data-suit-color="red">
+                        <div class="event-card card-suit-red" data-modal="event_author" data-suit-color="red">
                             <div class="card-corner top-left">K<br>♥</div>
                             <div class="event-icon">🎤</div>
                             <div class="event-title">Author<br>Hours</div>
@@ -3372,7 +3372,7 @@
                         </div>
 
                         <!-- Card 3: Q♠ Mentoring -->
-                        <div class="event-card card-suit-black" onclick="openModal('event_mentoring')"
+                        <div class="event-card card-suit-black" data-modal="event_mentoring"
                             data-suit-color="black">
                             <div class="card-corner top-left">Q<br>♠</div>
                             <div class="event-icon">🔄</div>
@@ -3382,7 +3382,7 @@
                         </div>
 
                         <!-- Card 4: J♦ Hackathon -->
-                        <div class="event-card card-suit-red" onclick="openModal('event_hackathon')"
+                        <div class="event-card card-suit-red" data-modal="event_hackathon"
                             data-suit-color="red">
                             <div class="card-corner top-left">J<br>♦</div>
                             <div class="event-icon">💻</div>
@@ -3392,7 +3392,7 @@
                         </div>
 
                         <!-- Card 5: 10♣ Wellness -->
-                        <div class="event-card card-suit-black" onclick="openModal('event_wellness')"
+                        <div class="event-card card-suit-black" data-modal="event_wellness"
                             data-suit-color="black">
                             <div class="card-corner top-left">10<br>♣</div>
                             <div class="event-icon">🌿</div>
@@ -3402,7 +3402,7 @@
                         </div>
 
                         <!-- Card 6: 9♥ Community -->
-                        <div class="event-card card-suit-red" onclick="openModal('event_community')"
+                        <div class="event-card card-suit-red" data-modal="event_community"
                             data-suit-color="red">
                             <div class="card-corner top-left">9<br>♥</div>
                             <div class="event-icon">🤝</div>
@@ -3412,7 +3412,7 @@
                         </div>
 
                         <!-- Card 7: 8♠ Social -->
-                        <div class="event-card card-suit-black" onclick="openModal('event_social')"
+                        <div class="event-card card-suit-black" data-modal="event_social"
                             data-suit-color="black">
                             <div class="card-corner top-left">8<br>♠</div>
                             <div class="event-icon">🎉</div>
@@ -3422,7 +3422,7 @@
                         </div>
 
                         <!-- Card 8: 7♦ Learning -->
-                        <div class="event-card card-suit-red" onclick="openModal('event_learning')"
+                        <div class="event-card card-suit-red" data-modal="event_learning"
                             data-suit-color="red">
                             <div class="card-corner top-left">7<br>♦</div>
                             <div class="event-icon">🎓</div>
@@ -3432,7 +3432,7 @@
                         </div>
 
                         <!-- Card 9: 6♣ Awards -->
-                        <div class="event-card card-suit-black" onclick="openModal('event_awards')"
+                        <div class="event-card card-suit-black" data-modal="event_awards"
                             data-suit-color="black">
                             <div class="card-corner top-left">6<br>♣</div>
                             <div class="event-icon">🏆</div>
@@ -3442,7 +3442,7 @@
                         </div>
 
                         <!-- Card 10: 5♥ Family -->
-                        <div class="event-card card-suit-red" onclick="openModal('event_family')" data-suit-color="red">
+                        <div class="event-card card-suit-red" data-modal="event_family" data-suit-color="red">
                             <div class="card-corner top-left">5<br>♥</div>
                             <div class="event-icon">🧸</div>
                             <div class="event-title">Family<br>Days</div>
@@ -3560,6 +3560,17 @@
                                     const flyers = document.querySelectorAll('.flying-card');
                                     flyers.forEach(f => f.remove());
                                     deck.style.pointerEvents = 'auto'; // Re-enable if needed
+
+                                    // NOW enable click handlers on the cards
+                                    gridItems.forEach(card => {
+                                        const modalId = card.dataset.modal;
+                                        if (modalId) {
+                                            card.style.cursor = 'pointer';
+                                            card.onclick = function() {
+                                                openModal(modalId);
+                                            };
+                                        }
+                                    });
                                 }, 600);
                             }, (gridItems.length * 120) + 900);
                         }
