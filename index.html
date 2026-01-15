@@ -1772,10 +1772,87 @@
                 opacity: 1;
             }
         }
+
+        /* Mobile Warning Overlay */
+        .mobile-warning-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .mobile-warning-content {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-warning-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .mobile-warning-content h2 {
+            color: var(--kobo-red);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .mobile-warning-content p {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .mobile-warning-dismiss {
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: var(--kobo-red);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .mobile-warning-dismiss:hover {
+            background: #a01519;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-warning-overlay {
+                display: flex;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Mobile Warning Overlay -->
+    <div class="mobile-warning-overlay" id="mobileWarning">
+        <div class="mobile-warning-content">
+            <div class="mobile-warning-icon">📱⛔</div>
+            <h2>Desktop Required</h2>
+            <p>This presentation is optimized for desktop viewing and may not display correctly on mobile devices.</p>
+            <p>Please open this link on a desktop or laptop computer for the best experience.</p>
+            <button class="mobile-warning-dismiss" onclick="document.getElementById('mobileWarning').style.display='none'">Continue Anyway</button>
+        </div>
+    </div>
+
     <!-- Welcome Screen -->
     <div id="welcome-screen">
         <div class="welcome-content">
